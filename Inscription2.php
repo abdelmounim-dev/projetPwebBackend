@@ -104,7 +104,7 @@ $conn = null;
     ?>
   </pre>
 
-<form action="Inscription.php" method="post" enctype= multipart/form-data>
+<form action="Inscription2.php" method="post" enctype= multipart/form-data>
   <div class="mb-3">
     <label >Matricule</label>
     <input type="text" name="matricule" class="form-control" required>
@@ -125,19 +125,6 @@ $conn = null;
     <label >telephone</label>
     <input type="tel" name="telephone" class="form-control" pattern="0[0-9]{9}" required>
   </div>
-  <!-- <div class="mb-3">
-    <label >Anné d'etude</label>
-    <input type="radio" name="anneEtude" id="L1">
-    <label for="L1">L1</label>
-    <input type="radio" name="anneEtude" id="L2">
-    <label for="L2">L2</label>
-    <input type="radio" name="anneEtude" id="L3">
-    <label for="L3">L3</label>
-    <input type="radio" name="anneEtude" id="M1">
-    <label for="M1">M1</label>
-    <input type="radio" name="anneEtude" id="M2">
-    <label for="M2">M2</label>
-  </div> -->
   <div class="mb-3">
     <label for="anneEtude">Année d'étude</label>
     <select name="anneEtude" id="Année"required>
