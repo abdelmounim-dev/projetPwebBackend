@@ -42,9 +42,9 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; 
-  font-size: 100%; 
-  line-height: 1.15; 
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
   margin: 0;
 }
 .container {
@@ -209,9 +209,10 @@ textarea {
   min-height: calc(100vh - 72px);
   display: flex;
   align-items: center;
-  
+
 }
 .landing .text {
+  z-index: 2;
   flex: 1;
 }
 @media (max-width: 991px) {
@@ -338,14 +339,26 @@ textarea {
   }
 }
 .description .image {
+  width: 50%;
   z-index: 2;
-  width: 350%;
+}
+.description .image img{
+  width: 100%;
   max-width: 100%;
   margin-right: 100px;
 }
 @media (max-width: 991px) {
   .description .image {
+    width: 100%;
     margin: 0 0 50px;
+  }
+}
+.description .info{
+  width: 50%;
+}
+@media (max-width: 991px) {
+  .description .info {
+    width: 100%;
   }
 }
 .description .info .box {
@@ -373,7 +386,7 @@ textarea {
   width: 0;
   height: 0;
   transform: translate(-50%, -50%);
-  background-color: #f5c3b4;
+  background-color: #ffdbd1;
   z-index: -1;
   transition: var(--main-transition);
 }
@@ -592,9 +605,9 @@ textarea {
   gap: 40px;
 }
 .footer .box .logo {
+  filter: brightness(0) invert(1);
   margin-bottom: 30px;
   width: 100px;
-  filter: brightness(0) invert(1);
 }
 .footer .box .social {
   display: flex;
@@ -711,6 +724,16 @@ textarea {
   display: flex;
   flex-wrap: wrap;
 }
+.inscription .connected {
+  margin-top: 20px;
+  z-index: 3;
+  background-color: #747474;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  transition: linear 0.5s;
+  max-width: 236px;
+}
 .inscription .image {
   background-size: cover;
   color: white;
@@ -794,7 +817,9 @@ textarea {
 }
 .inscription .content .avantages li::before{
   content: "";
-  background-image: url('/imgs/scribble-broken-line.png');
+  background-image: url('../imgs/scribble-broken-line.png');
+  /*background-image: url(https://cdn-icons.flaticon.com/png/512/2252/premium/2252525.png?token=exp=1653170570~hmac=c6b5a643060797b1e1d4f072291b6c38);*/
+  /*filter: brightness(0) invert(1);*/
   position: absolute;
   width: 24px;
   height: 24px;

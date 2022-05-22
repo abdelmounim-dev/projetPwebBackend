@@ -30,3 +30,6 @@ function startCount(el) {
     }
   }, 2000 / goal);
 }
+document.addEventListener('click', () => {
+  document.querySelector('.connected').remove();
+}); 

@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "1234";
-$dbname = "project_prototype";
+$dbname = "project_pweb";
 
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 // set the PDO error mode to exception
@@ -116,97 +116,26 @@ if ($conn->connect_error) {
       <h2 class="main-title">evenements</h2>
       <div class="container">
           <?php
-          $statement = $conn->prepare("SELECT titre, date, type, description FROM events ORDER BY date DESC");
+          $statement = $conn->prepare("SELECT titre, date, type, description, image FROM events ORDER BY date DESC");
           $statement->execute();
           $events = $statement->fetchAll(PDO::FETCH_ASSOC);
           
           foreach ($events as $event) {
           ?>
         <div class="box">
-          <img src="imgs/event1.jpg" alt="" />
+          <img src="<?php echo $event['image'] ?>" alt="" />
           <h3><?php echo $event['titre'] ?></h3>
           <span class="title"><?php echo $event['type'] ?></span>
           <div class="date">
             <p><em><?php echo $event['date'] ?></em></p>
           </div>
           <p>
-            <?php echo $events['description'] ?>
+            <?php echo $event['description'];  ?>
           </p>
         </div>
           <?php
           }
           ?>
-<!--        <div class="box">-->
-<!--          <img src="imgs/event1.jpg" alt="" />-->
-<!--          <h3>Algeria Game Challenge</h3>-->
-<!--          <span class="title">Manifestation scientifique</span>-->
-<!--          <div class="date">-->
-<!--            <p><em>2022/05/18</em></p>-->
-<!--          </div>-->
-<!--          <p>-->
-<!--            Pionnier du développement vidéoludique et première initiative à-->
-<!--            introduire ce domaine en Algérie, Algeria Game Challenge,-->
-<!--            anciennement nommé «XNA» d’après le Framework de Microsoft, est un-->
-<!--            concours de développement de jeux vidéo destiné aux passionnés du-->
-<!--            domaine vidéoludique aux quatre coins du pays. Ce concours vise à-->
-<!--            lancer les participants dans un processus d’exploration du métier de-->
-<!--            développeur de jeux vidéo, afin d’attirer les investisseurs dans ce-->
-<!--            secteur.-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="box">-->
-<!--          <img src="imgs/event2.jpg" alt="" />-->
-<!--          <h3>Algeria 2.0</h3>-->
-<!--          <span class="title">Manifestation scientifique</span>-->
-<!--          <div class="date">-->
-<!--            <p><em>2022/05/18</em></p>-->
-<!--          </div>-->
-<!--          <p>-->
-<!--            Algeria 2.0 est le plus grand événement WEB et TIC en Afrique. Il-->
-<!--            est considéré comme "le carrefour international des professionnels-->
-<!--            des TIC et du WEB 2.0". Il a pour but d'assurer une mutation vers un-->
-<!--            avenir numérique. Il crée toutes sortes d'opportunités de-->
-<!--            développement du pays et du continent.-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="box">-->
-<!--          <img src="imgs/event4.png" alt="" />-->
-<!--          <h3>Red Hat Training Camp</h3>-->
-<!--          <span class="title">Formation</span>-->
-<!--          <div class="date">-->
-<!--            <p><em>2022/05/18</em></p>-->
-<!--          </div>-->
-<!--          <p>-->
-<!--            Red Hat Training Camp est une formation certifiée de 3 jours qui-->
-<!--            concerne les technologies Red Hat. Le stage est animé par Dr.-->
-<!--            Djelloul Bouida, architecte de solutions senior et niveau IV RHCA.-->
-<!--            Le but est de permettre aux étudiants d’acquérir une expérience sur-->
-<!--            le système d’administration linux, virtualisation et cloud computing-->
-<!--            sur un niveau débutant-intermédiaire.-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="box">-->
-<!--          <img src="imgs/event3.png" alt="" />-->
-<!--          <h3>Micro Club Capture The Flag</h3>-->
-<!--          <span class="title">Conférence</span>-->
-<!--          <div class="date">-->
-<!--            <p><em>2022/05/18</em></p>-->
-<!--          </div>-->
-<!--          <p>-->
-<!--            Micro Club Capture The Flag est un salon autour de la-->
-<!--            cyber-sécurité, englobant conférences, tables rondes et une compéti--->
-<!--            tion nationale. Le but de MCTF est de permet- tre aux participants-->
-<!--            de découvrir et maîtriser de nouvelles technologies ainsi que de-->
-<!--            dével- opper de nouvelles compétences. Dans l’optique d’encourager-->
-<!--            le développement de la communauté de white hackers, Micro-Club tient-->
-<!--            à organiser un événement en rapport avec la sécurité informatique en-->
-<!--            vue de rassembler enthousiastes du domaine et éventuels recruteurs.-->
-<!--            Ainsi, avec cet événement, le Micro Club désire promou- voir les-->
-<!--            bonnes pratiques de la cyber-sécurité et entreprend de sensibiliser-->
-<!--            les jeunes étudi- ants sur ce domaine ainsi qu’inculquer les bonnes-->
-<!--            valeurs du ‘Ethical Hacking’.-->
-<!--          </p>-->
-<!--        </div>-->
       </div>
     </div>
     <!-- End evenements -->
@@ -267,7 +196,7 @@ if ($conn->connect_error) {
     <div class="footer" id="footer">
       <div class="container">
         <div class="box">
-          <img src="/imgs/Micro Club's Logo.svg" class="logo" />
+          <img src="imgs/Micro Club's Logo.svg" class="logo" />
           <ul class="social">
             <li>
               <a href="https://facebook.com/Micro.Club.USTHB" class="facebook">

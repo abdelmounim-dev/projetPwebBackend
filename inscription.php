@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "1234";
-$dbname = "project_prototype";
+$dbname = "project_pweb";
 
 $connected = false;
 $finished = false;
@@ -68,14 +68,14 @@ try {
 
         $stmt->execute();
         $connected = true;
+        $finished = true;
     }
 } catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
+    $finished = true;
 }
 
-if ($connected) {
-    echo "Connected successfully";
-}
+
 $conn = null;
 
 ?>
@@ -212,14 +212,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
           </ul>
         </div>
       </div>
-      <div class="connected">
-          <?php
-          if($finished){
-              if ($connected) echo "votre inscription a reussit";
-              else echo "votre inscription n'a pas reussit, veillez réessayer";
-          }
-          ?>
-      </div>
+
       <div class="form">
         <div class="content">
           <h2>Inscrire</h2>
@@ -231,6 +224,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 required
                 placeholder="Matricule"
                 name="matricule"
+                pattern="[0-9]{12}"
                 />
             </div>
             <div>
@@ -307,6 +301,20 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             ></textarea>
             <button type="submit">ENVOYER</button>
           </form>
+<!--            <div class="connected">-->
+<!--                connected successfully-->
+<!--            </div>-->
+            <?php
+            if ($finished) {
+                if ($connected) : echo
+                "<div class=\"connected\">
+                    votre inscription a reussit.
+                </div>" ;
+                  else: echo
+                "<div class=\"connected\">
+                    votre inscription n'a pas reussit, veuillez réesseyer.
+                </div>"; endif;
+            }?>
         </div>
       </div>
     </div>
@@ -332,4 +340,5 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <!-- End Stats -->
   </body>
+<script src="js/main.js"></script>
 </html>

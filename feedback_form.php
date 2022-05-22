@@ -31,15 +31,8 @@ $mail = new PHPMailer(true);
 
     //Recipients
     $mail->setFrom('microclubwebsite@gmail.com', 'Mailer');
-    $mail->addAddress('abdelatifguendouz72@gmail.com', 'site owner');     //Add a recipient
-//    $mail->addAddress('ellen@example.com');               //Name is optional
-//    $mail->addReplyTo('info@example.com', 'Information');
-//    $mail->addCC('cc@example.com');
-//    $mail->addBCC('bcc@example.com');
+    $mail->addAddress('contact@microclub.com', 'site owner');     //Add a recipient
 
-    //Attachments
-//    $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-//    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
